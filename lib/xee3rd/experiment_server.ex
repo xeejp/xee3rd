@@ -5,7 +5,7 @@ defmodule Xee3rd.ExperimentServer do
 
   @doc "Checks whether the key is used."
   def has?(key) do
-    Agent.get(__MODULE__, fn map -> Map.has_key?(key) end)
+    Agent.get(__MODULE__, fn map -> Map.has_key?(map, key) end)
   end
 
   @doc "Creates and Register a experiment."
