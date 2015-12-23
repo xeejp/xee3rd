@@ -1,6 +1,8 @@
 defmodule Xee3rd.Experiment do
   use GenServer
 
+  defstruct theme_id: nil, script: nil, javascript: nil
+
   def start_link(experiment) do
     GenServer.start_link(__MODULE__, experiment)
   end
