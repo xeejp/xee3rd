@@ -1,8 +1,9 @@
 defmodule Xee3rd do
   use Application
 
-  # See http://elixir-lang.org/docs/stable/elixir/Application.html
-  # for more information on OTP Applications
+  @host_onetime_server_name :HostOnetime
+  @participant_onetime_server_name :ParticipantOnetime
+
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
@@ -12,6 +13,8 @@ defmodule Xee3rd do
       # Start the Ecto repository
       worker(Xee3rd.Repo, []),
       worker(Xee3rd.ThemeServer, []),
+      worker(Onetime, [[name: @host_onetime_server_name]]),
+      worker(Onetime, [[name: @participant_onetime_server_name]], id: :participant),
       # Here you could define other workers and supervisors as children
       # worker(Xee3rd.Worker, [arg1, arg2, arg3]),
     ]
