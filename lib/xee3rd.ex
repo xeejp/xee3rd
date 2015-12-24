@@ -4,6 +4,9 @@ defmodule Xee3rd do
   @host_onetime_server_name :HostOnetime
   @participant_onetime_server_name :ParticipantOnetime
 
+  def host_onetime, do: @host_onetime_server_name
+  def participant_onetime, do: @participant_onetime_server_name
+
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
