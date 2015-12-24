@@ -1,7 +1,7 @@
 defmodule Xee3rd.Endpoint do
   use Phoenix.Endpoint, otp_app: :xee3rd
 
-  socket "/socket", Xee3rd.UserSocket
+  socket "/experiment", Xee3rd.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #

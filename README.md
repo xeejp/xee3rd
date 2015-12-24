@@ -1,4 +1,5 @@
 # Xee3rd
+**master**: [![Build Status](https://travis-ci.com/xeejp/xee3rd.svg?token=Th4MUtTHpzrEMsTKLZ6N&branch=master)](https://travis-ci.com/xeejp/xee3rd)
 
 To start your new Phoenix application:
 

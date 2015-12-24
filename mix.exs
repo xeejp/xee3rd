@@ -35,6 +35,8 @@ defmodule Xee3rd.Mixfile do
      {:phoenix_html, "~> 1.4"},
      {:phoenix_live_reload, "~> 0.5", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:uuid, "~> 1.1" }]
+     {:uuid, "~> 1.1" },
+     {:onetime, "~> 0.1"}
+   ]
   end
 end

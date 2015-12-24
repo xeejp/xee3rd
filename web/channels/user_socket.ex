@@ -1,8 +1,7 @@
 defmodule Xee3rd.UserSocket do
   use Phoenix.Socket
 
-  ## Channels
-  # channel "rooms:*", Xee3rd.RoomChannel
+  channel "*", Xee3rd.ExperimentChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
