@@ -28,8 +28,12 @@ defmodule Xee3rd.Experiment do
     GenServer.cast(pid, {:script, ["join", id]})
   end
 
-  def input(pid, input) do
-    GenServer.cast(pid, {:script, ["input", input]})
+  def client(pid, recieve, participant_id) do
+    GenServer.cast(pid, {:script, ["recieve", recieve, participant_id]})
+  end
+
+  def client(pid, recieve) do
+    GenServer.cast(pid, {:script, ["recieve", recieve]})
   end
 
   def handle_call(:fetch, _from, state = {_experiment, data}) do
