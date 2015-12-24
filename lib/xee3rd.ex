@@ -11,6 +11,7 @@ defmodule Xee3rd do
       supervisor(Xee3rd.Endpoint, []),
       # Start the Ecto repository
       worker(Xee3rd.Repo, []),
+      worker(Xee3rd.ThemeServer, []),
       # Here you could define other workers and supervisors as children
       # worker(Xee3rd.Worker, [arg1, arg2, arg3]),
     ]
