@@ -1,6 +1,10 @@
 defmodule Xee3rd.Experiment do
   use GenServer
 
+  def generate_id(length \\ 6) do
+    Enum.map_join(1..length, fn _ -> Enum.take_random 'abcdefghijklmnopqrstuvwxyz', 1 end)
+  end
+
   defstruct theme_id: nil, script: nil, javascript: nil
 
   def start_link(experiment) do
