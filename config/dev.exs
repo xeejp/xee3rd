@@ -32,4 +32,4 @@ config :xee3rd, Xee3rd.Repo,
   username: "postgres",
   password: "postgres",
   database: "xee3rd_dev",
-  size: 10 # The amount of database connections in the pool
+  pool_size: 10 # The amount of database connections in the pool
