@@ -14,7 +14,7 @@ defmodule Xee3rd.ExperimentController do
           u_id
       end
       token = Xee3rd.TokenGenerator.generate
-      Onetime.register(Xee3rd.participant_onetime, token, u_id)
+      Onetime.register(Xee3rd.participant_onetime, token, %{participant_id: u_id, experiment_id: x_id})
       render conn, "index.html", token: token, topic: x_id <> ":participant"
     else
       conn
@@ -27,7 +27,7 @@ defmodule Xee3rd.ExperimentController do
     has = Xee3rd.HostServer.has?(get_session(conn, :current_user), x_id)
     if has do
       token = Xee3rd.TokenGenerator.generate
-      Onetime.register(Xee3rd.host_onetime, token, conn.assigns[:host])
+      Onetime.register(Xee3rd.host_onetime, token, %{host_id: conn.assigns[:host], experiment_id: x_id})
       render conn, "admin.html", token: token, topic: x_id <> ":host"
     else
       conn
