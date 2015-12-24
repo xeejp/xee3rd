@@ -1,16 +1,17 @@
 import {Socket} from "phoenix"
 
-let socket = new Socket("/experiment")
-socket.connect()
-let chan = socket.chan(_channel_topic, {}) // _channel_topic is provided by ExperimentController
-chan.join().receive("ok", resp => {
-  console.log("Joined succesffuly!", resp)
-})
+export default class Experiment {
+    constructor(topic, token, root) {
+        this.socket = new Socket("/experiment")
+        this.socket.connect(token)
+        this.chan = this.socket.chan(topic, {})
+        this.chan.join().receive("ok", resp => {})
+        this.chan.on("update", payload => {
+            root.setState(payload.body)
+        })
+    }
 
-chann.on("update", payload => {
-    _root.setState(payload.body)
-})
-
-function _send_data(data) {
-    chan.push("update", data)
+    send_data(data) {
+        this.chan.push("update", data)
+    }
 }
